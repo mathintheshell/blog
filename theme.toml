@@ -1,10 +1,3 @@
-baseURL = "https://asanchezyali.github.io"
-languageCode = "en-us"
-title = "Math in the shell"
-theme = "hugo-theme-novela"
-PygmentsCodeFences = true
-PygmentsStyle = "monokai"
-
 name = "Hugo Novela"
 license = "MIT"
 licenselink = "https://github.com/forestryio/hugo-theme-novela/blob/master/LICENSE"
@@ -15,7 +8,7 @@ features = ["dark mode", "grid view"]
 min_version = "0.65.0"
 
 [author]
-    name = "Alejandro Sánchez Yalí"
+    name = "The New Dynamic"
     homepage = "https://www.thenewdynamic.com/"
 
 # If porting an existing theme
@@ -23,12 +16,3 @@ min_version = "0.65.0"
     author = "Narative"
     homepage = "https://www.narative.co/"
     repo = "https://github.com/narative/gatsby-theme-novela"
-
-[taxonomies]
-    author = "authors"
-
-[social]
-    github = "https://github.com/asanchezyali"
-    instagram = "https://www.instagram.com/asanchezyali/"
-    linkedin = "https://www.linkedin.com/in/asanchezyali/"
-    twitter = "https://twitter.com/asanchezyali"
