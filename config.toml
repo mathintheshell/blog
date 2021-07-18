@@ -1,4 +1,4 @@
-baseURL = "https://asanchezyali.github.io"
+baseURL = "https://mathintheshell.github.io"
 languageCode = "en-us"
 title = "Math in the shell"
 theme = "hugo-theme-novela"
