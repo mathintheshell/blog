@@ -9,23 +9,25 @@ authors:
   - Hugo Authors
 ---
 
-¿Cómo aprendemos los humanos? En principio la mayoría del conocimiento humano proviene de nuestra experiencia con los objetos, es decir, aprendemos de los datos y no a partir de definiciones matemáticas ideales.
+¿Cómo aprendemos los humanos? En principio la mayoría del conocimiento humano proviene de nuestra experiencia con los objetos, es decir, aprendemos de los datos que obtenemos acerca de ellos y no a partir de algún tipo de definición matemática ideal de lo que son.
 
 Esta habilidad de aprender de los datos, nos ha resultado bastante útil, dado que existe una amplia variedad de problemas que no se pueden resolver de forma analítica. En estas situaciones los datos nos permiten encontrar soluciones empíricas, que no necesariamente explican  el porqué de las cosas, pero si ofrecen resultados útiles para la práctica. Por esta razón, la capacidad de aprender a partir de los datos es una técnica de mucha importancia para todas las profesiones y disciplinas. 
 
-En esta ocasión vamos a estudiar los principales elementos que constituyen __el problema del aprendizaje a partir de los datos__, para finalmente entender cómo las máquinas también pueden aprender.
+En esta ocasión a tratar breve los principales elementos que constituyen __el problema del aprendizaje a partir de los datos__, para finalmente entender cómo las máquinas también pueden aprender.
 
 ## El problema del aprendizaje 
 
 El poder aprender a partir de los datos es un proceso que puede ser automatizado, es decir, se pueden elaborar algoritmos que realizan esta tarea. En este punto es importante entender que los algoritmos que aprenden de los datos solo tratan de encontrar la mejor solución para predecir resultados, y no necesariamente encuentran el porqué. Aquí los datos guían a los algoritmos para construir la fórmula que ofrece las mejores aplicaciones en el sentido práctico.
 
-En un sentido más matemático, el problema del aprendizaje se puede definir a partir de tres espacios medibles $\mathcal{X}$, $\mathcal{Y}$ y $\mathcal{Z}$, tal que $\mathcal{Z} \subset \mathcal{X} \times \mathcal{Y}$. Se dice que  __una tarea de aprendizaje__ se da cuando se tiene una __muestra de datos__  $S \subset \mathcal{Z}$ y una __función de perdida__ $\mathcal{L}: \mathcal{M}( \mathcal{X}, \mathcal{Y} )\times \mathcal{Z} \to \mathbb{R}$, en donde $\mathcal{M}( \mathcal{X}, \mathcal{Y} )$ es el conjunto de todas las funciones medibles de $\mathcal{X}$ a $\mathcal{Y}$. El problema  aquí, está en cómo elegir el conjunto de hipótesis $\mathcal{H} \subset \mathcal{M}( \mathcal{X}, \mathcal{Y} )$ y construir un __algoritmo de aprendizaje__, es decir, un mapeo:
+En un sentido más matemático, el problema del aprendizaje puede formular a partir de tres espacios medibles $\mathcal{X}$, $\mathcal{Y}$ y $\mathcal{Z}$, en donde  $\mathcal{Z} \subset \mathcal{X} \times \mathcal{Y}$ y representa a una __relación__ entre los datos de $\mathcal{X}$ e $\mathcal{Y}$. En principio, __la tarea de aprendizaje__ consiste en entender cuál es la estructura de $\mathcal{Z}$ a partir de una muestra de datos $S=(s\_{i})\_{i\in [m]}$ y alguna  __función de perdida__ $\mathcal{L}: \mathcal{M}( \mathcal{X}, \mathcal{Y} )\times \mathcal{Z} \to \mathbb{R}$, en donde $\mathcal{M}( \mathcal{X}, \mathcal{Y} )$ es el conjunto de todas las funciones medibles de $\mathcal{X}$ a $\mathcal{Y}$.  Esta función se emplea principalmente para medir cúal es el _performance_ de nuestro aprendizaje. 
+
+Resolver esta tarea implica elegir un conjunto de __hipótesis__ $\mathcal{H} \subset \mathcal{M}( \mathcal{X}, \mathcal{Y} )$ y construir un __algoritmo de aprendizaje__, es decir, un mapeo:
 
 \begin{equation}\tag{1}
 \mathcal{A}: \bigcup\_{ m\in \mathbb{N} } \mathcal{Z}^{m} \to \mathcal{H}
 \end{equation}
 
-que a partir de una __muestra de datos__ $S = (s\_i)_{i=1}^m$ de cierto tamaño $m$ logre encontrar un __modelo__ $f\_S = A(S)\in \mathcal{H}$ que se «_comporta bien_» en $S$ y tiene la «_capacidad de generalizar_» para los datos desconocidos en $\mathcal{Z}\setminus S$. Aquí, el comportamiento se mide via la función de perdida $\mathcal{L}$ y corresponde a la perdida $\mathcal{L}(f\_S, z)$ e informalmente la capacidad de generalizar quiere decir que el comportamiento de $f\_S$ en $z\in \mathcal{Z}\setminus S$ es similar a $z\in \mathcal{S}$.
+que a partir de una __muestra de datos__ $S = (s\_i)_{i=1}^m$ de cierto tamaño $m$ logre encontrar un __modelo__ $f\_S = A(S)\in \mathcal{H}$ que se «_comporta bien_» en $S$ y tiene la «_capacidad de generalizar_» para los datos desconocidos en $\mathcal{Z} \setminus S$. Aquí, el buen comportamiento se mide via la función de perdida $\mathcal{L}$ y corresponde a la perdida $\mathcal{L}(f\_S, z)$ e informalmente la capacidad de generalizar quiere decir que el comportamiento de $f\_S$ en $z\in \mathcal{Z}\setminus S$ es similar a $z\in \mathcal{S}$.
 
 Como se puede apreciar la noción de la capacidad de generalizar es bastante vaga, sin embargo no nos centraremos en esto por ahora. Por simplicidad, vamos a centrar nuestra atención en un par de ejemplos para entender mejor la naturaleza del problema del aprendizaje a partir de los datos. 
 
