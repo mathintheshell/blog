@@ -33,7 +33,7 @@ Como se puede apreciar la noción de la capacidad de generalizar es bastante vag
 
 ## Tareas de predicción y clasificación
 
-Una __tarea de predicción__, se pude definir a partir de un conjunto de entrenamiento $S = (x_i, y_i)_{i=1}^m$ que consiste de un entrada de características $x_i\in \mathcal{X}$ y una etiqueta correspondiente $y_i\in \mathcal{Y}$. En el caso de una regresión 1 - dimensional, con $\mathcal{Y} \subset \mathbb{R}$, la función de perdida se define como $\mathcal{L}(f, (x, y)) = (f(x) - y)^2$ y, para una __tarea de clasificación__ binaria con $\mathcal{Y} = \\{-1, 1\\}$, la función de perdida es $\mathcal{L}(f, (x, y)) = 1\_{(-\infty, 0)}(yf(x)).$ Nosotros estamos asumiendo por ahora que las características están en un espacio Euclidiana, es decir, $\mathcal{X}\subset \mathbb{R}^{d}$ en donde $d\in \mathbb{N}$.
+Una __tarea de predicción__, se pude definir a partir de un conjunto de entrenamiento $S = (x_i, y_i)_{i=1}^m$ que consiste de un entrada de características $x_i\in \mathcal{X}$ y una etiqueta correspondiente $y_i\in \mathcal{Y}$. En el caso de una regresión 1 - dimensional, con $\mathcal{Y} \subset \mathbb{R}$, la función de perdida se define como $\mathcal{L}(f, (x, y)) = (f(x) - y)^2$ y, para una __tarea de clasificación__ binaria con $\mathcal{Y} = \\{-1, 1\\}$, la función de perdida es $\mathcal{L}(f, (x, y)) = 1\_{(-\infty, 0)}(yf(x)).$ Nosotros estamos asumiendo por ahora que las características están en un espacio Euclidiano, es decir, $\mathcal{X}\subset \mathbb{R}^{d}$ en donde $d\in \mathbb{N}$.
 
 
 
