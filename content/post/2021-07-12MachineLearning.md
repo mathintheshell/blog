@@ -23,18 +23,18 @@ En un sentido más matemático, el problema del aprendizaje se puede formular a 
 
 Resolver esta tarea implica hacer la elección de un conjunto de __hipótesis__ $\mathcal{H} \subset \mathcal{M}( \mathcal{X}, \mathcal{Y} )$ y de la  construcción de un __algoritmo de aprendizaje__, es decir, un mapeo:
 
-\begin{equation}\tag{1}
+\begin{equation}
 \mathcal{A}: \bigcup\_{ m\in \mathbb{N} } \mathcal{Z}^{m} \to \mathcal{H}
 \end{equation}
 
 que a partir de una __muestra de datos__ $S = (s\_i)_{i\in[m]}$ de cierto tamaño $m$ logre encontrar un __modelo__ $f\_S = A(S)\in \mathcal{H}$ con «_buen comportamiento_» en $S$ y «_capacidad de generalizar_» para los datos desconocidos en $\mathcal{Z} \setminus S$. Aquí, el buen comportamiento se mide via la función de perdida $\mathcal{L}$ y corresponde a la perdida $\mathcal{L}(f\_S, z)$ e informalmente la capacidad de generalizar quiere decir que el comportamiento de $f\_S$ en $z\in \mathcal{Z}\setminus S$ es similar a $z\in \mathcal{S}$.
 
 Como se puede apreciar la nociones de «_buen comportamiento_» y «_la capacidad de generalizar_» son bastante vagas, sin embargo, para hacernos una mejor idea de estas nociones, hay que centrar la atención en el comportamiento de función $\mathcal{L}$  sobre los conjuntos $\mathcal{H}\times S$ y  $\mathcal{H}\times (Z\setminus S)$, en donde, $\mathcal{L}\_{in} = \mathcal{L}|\_{\mathcal{H}\times S}$ se define como __la perdida en la muestra__ o simplemente __la perdida empírica__ y $\mathcal{L}\_{out} = \mathcal{L}|\_{\mathcal{H}\times (Z \setminus S)}$ se define como __la perdida fuera de la muestra__ o simplemente __la perdida ideal__. Ahora bien, si existiera el modelo $f^*\in \mathcal{H}$ tal que $f^\*(\mathcal{X}) = \mathcal{Z}$, entonces la perdida empírica y la perdida ideal serían nulas, pues el modelo no presentaría ningún error en su tarea de predicción. En las situaciones reales  de aprendizaje, por lo general, no es posible encontrar el modelo $f^\*$, por lo que los esfuerzos para encontrar un modelo se centran en mínimizar el __error empírico__ o __perdida total__, es decir, para una muestra de datos $S = (s\_i)_{i\in[m]}$ y conjunto de hipótesis $\mathcal{H}$, se busca un $f\_s\in \mathcal{H}$ tal que:
-\begin{equation}\tag{2}
+\begin{equation}
 f\_s \in \operatorname\*{argmin}\_{f\in \mathcal{H}} \frac{1}{m}\sum\_{i=1}^{m}\mathcal{L}\_{in}(f, z\_i).
 \end{equation}
 
-De esta forma se está asegurando el buen comportamiento de $f\_{s}$ en $S$. Sin embargo, esta estrategía encierra un detalle con un gran demonio, el __sobreentrenamiento__. 
+De esta forma se está asegurando el buen comportamiento de $f\_{s}$ en $S$. Sin embargo, esta estrategía encierra un detalle con un gran demonio, el __sobreentrenamiento__. En la práctica es ...
 
 ## Tareas de predicción y clasificación
 

@@ -450,6 +450,11 @@
 
 .post-content{
     padding: 160px 0 35px;
+
+    p {
+        text-align: justify;
+        text-justify: inter-word;    
+    }
 }
 
 /**************************************ARTICLE NEXT**************************************/
