@@ -47,7 +47,7 @@ De esta forma se está asegurando el _buen comportamiento_ de $f\_{s}$ en $S$. S
 Una vez se ha identificado la clase de hipotesis adecuada, $\mathcal{H}$, debemos en segundo lugar, encontrar la hipótesis $f$ en $\mathcal{H}$ que satisface la ecuación (1). Si se logra conseguir un modelo con estas características, podremos decir, que tiene _la capacidad de generalizar_.
 
 ## Tareas de predicción y clasificación
- Aqu´
+
 Una **tarea de predicción**, se pude definir a partir de un conjunto de entrenamiento $S = (x_i, y_i)_{i\in[m]}$ que consiste de una entrada de características $x_i\in \mathcal{X}$ y una etiqueta correspondiente $y_i\in \mathcal{Y}$. En el caso de una regresión 1 - dimensional, con $\mathcal{Y} \subset \mathbb{R}$, la función de perdida se define como $\mathcal{L}(f, (x, y)) = (f(x) - y)^2$ y, para una **tarea de clasificación** binaria con $\mathcal{Y} = \\{-1, 1\\}$, la función de perdida es $\mathcal{L}(f, (x, y)) = 1\_{(-\infty, 0)}(yf(x)).$ Nosotros estamos asumiendo por ahora que las características están en un espacio Euclidiano, es decir, $\mathcal{X}\subset \mathbb{R}^{d}$ en donde $d\in \mathbb{N}$.
 
 [Siguiente entrada](url)
