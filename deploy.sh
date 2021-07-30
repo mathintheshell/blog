@@ -2,6 +2,9 @@
 
 # If a command fails then the deploy stops
 set -e
+git config --global user.email "mathintheshell@gmail.com"
+git config --global user.name "mathintheshell"
+
 
 printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
@@ -36,3 +39,5 @@ echo "Committing changes to $(pwd)"
 git add .
 git commit -m "$msg"
 git push origin master
+git config --global user.email "alejandro.sanchezy@udea.edu.co"
+git config --global user.name "asanchezyali"
