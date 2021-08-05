@@ -19,7 +19,7 @@ En esta ocasión se va a tratar brevemente los principales elementos que constit
 
 El poder aprender a partir de los datos es un proceso que puede ser automatizado, es decir, se pueden elaborar algoritmos que realizan esta tarea. En este punto es importante entender que los algoritmos que aprenden de los datos solo tratan de encontrar la mejor solución para predecir resultados, y no necesariamente encuentran el porqué. Aquí los datos guían a los algoritmos para construir la fórmula que ofrece las mejores aplicaciones en el sentido práctico.
 
-En un sentido más matemático, el problema del aprendizaje se puede formular a partir de tres espacios medibles $\mathcal{X}$, $\mathcal{Y}$ y $\mathcal{Z}$, en donde el conjunto $\mathcal{Z}$ es un subconjunto de \mathcal{X} \times \mathcal{Y}$ que representa a una **relación** entre los datos de $\mathcal{X}$ e $\mathcal{Y}$. En principio, **la tarea de aprendizaje** consiste en entender la relación $\mathcal{Z}$ a partir de una **muestra de datos** $S=(s\_{i})\_{i\in [m]}$ y alguna **función de perdida** $\mathcal{L}: \mathcal{M}( \mathcal{X}, \mathcal{Y} )\times \mathcal{Z} \to \mathbb{R}$ definida sobre el producto cartesiano entre el conjunto $\mathcal{M}( \mathcal{X}, \mathcal{Y} )$ de todas las funciones medibles de $\mathcal{X}$ a $\mathcal{Y}$ y el conjunto $\mathcal{Z}$, y con imagen en los número reales. La función $\mathcal{L}$ se emplea principalmente para medir cúal es el _performance_ de nuestro aprendizaje.
+En un sentido más matemático, el problema del aprendizaje se puede formular a partir de tres espacios medibles $\mathcal{X}$, $\mathcal{Y}$ y $\mathcal{Z}$, en donde el conjunto $\mathcal{Z}$ es un subconjunto de $\mathcal{X} \times \mathcal{Y}$ que representa a una **relación** entre los datos de $\mathcal{X}$ e $\mathcal{Y}$. En principio, **la tarea de aprendizaje** consiste en entender la relación $\mathcal{Z}$ a partir de una **muestra de datos** $S=(s\_{i})\_{i\in [m]}$ y alguna **función de perdida** $\mathcal{L}: \mathcal{M}( \mathcal{X}, \mathcal{Y} )\times \mathcal{Z} \to \mathbb{R}$ definida sobre el producto cartesiano entre el conjunto $\mathcal{M}( \mathcal{X}, \mathcal{Y} )$ de todas las funciones medibles de $\mathcal{X}$ a $\mathcal{Y}$ y el conjunto $\mathcal{Z}$, y con imagen en los número reales. La función $\mathcal{L}$ se emplea principalmente para medir cúal es el _performance_ de nuestro aprendizaje.
 
 Resolver esta tarea implica hacer la elección de un conjunto de **hipótesis** $\mathcal{H} \subset \mathcal{M}( \mathcal{X}, \mathcal{Y} )$ y de la construcción de un **algoritmo de aprendizaje**, es decir, un mapeo:
 
@@ -35,7 +35,7 @@ Como se puede apreciar la nociones de «_buen comportamiento_» y «_la capacida
 L\_{in}(f) = \frac{1}{m}\sum\_{i=1}^{m}\mathcal{L}\_{in}(f, z\_i),
 \end{equation}
 
-es decir, para una muestra de datos $S = (s_i)*{i \in[m]}$ y un conjunto de hipótesis $\mathcal{H}$, se busca un modelo $f\_s\in \mathcal{H}$ tal que:
+es decir, para una muestra de datos $S = (s_i)\_{i \in[m]}$ y un conjunto de hipótesis $\mathcal{H}$, se busca un modelo $f\_s\in \mathcal{H}$ tal que:
 \begin{equation}\tag{1}
 f_s \in \operatorname\*{argmin}\_{f\in \mathcal{H}} L\_{in}(f).
 \end{equation}
