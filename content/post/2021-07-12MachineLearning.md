@@ -39,7 +39,7 @@ L\_{D}(h) = \mathbb{E}\_{z\sim \mathcal{D}}[\mathcal{L}(h, z)].
 
 Observe que para esta definición, la esperanza de la función de perdida de $h$ es sobre los datos de $z$ muestrados aleatoriamente de acuerdo con la distribucción $\mathcal{D}$. Hay que señalar que en la práctica la distribucción $\mathcal{D}$ es esencialmente desconocida. 
 
-Similarmente , el **riesgo empírico** es la perdida esperada sobre un muestra de datos  $S = (s_i)\_{i \in[m]}$, es decir: 
+Similarmente, el **riesgo empírico** es la perdida esperada sobre una muestra de datos  $S = (s_i)\_{i \in[m]}$, es decir: 
  
 \begin{equation}\tag{2}
 L\_{S}(h) = \frac{1}{m}\sum\_{i=1}^{m}\mathcal{L}(h, s\_i).
@@ -51,21 +51,21 @@ Ahora bien, si existiera el modelo $h^\*\in \mathcal{H}$ tal que el **riesgo ide
 h_s \in \operatorname\*{argmin}\_{h\in \mathcal{H}} L\_{S}(h).
 \end{equation}
 
-De esta forma se estará asegurando el _buen comportamiento_ de $h\_{s}$ en $S$. Sin embargo, esta estrategía encierra un detalle con un gran demonio en su interior, el **sobreentrenamiento**. En la práctica es posible encontrar modelos en donde el riesgo empírico es cero, $L\_{S}(h) = 0$ y la perdida fuera de la muestra es $\mathcal{L}(h, z) \neq 0$ para todo $z\in Z \setminus \\{s\_i\\}\_{i\in[m]}$; un modelo con estas características carece de _la capacidad de generalizar_. Este es un error frecuente, que ocurre con frecuencia cuando solo se utiliza un solo conjunto de datos para entrenar el algoritmo \mathcal{A}. Para evitar esto, es usual dividir el conjunto $S$ en dos, un conjunto para realizar el entrenamiento del algoritmo y el otro para medir su _capacidad de generalizar_. El objetivo es que el modelo encontrado tenga un comportamiento similar en ambos conjuntos.
+De esta forma se estará asegurando el _buen comportamiento_ de $h\_{s}$ en $S$. Sin embargo, esta estrategía encierra un detalle con un gran demonio en su interior, el **sobreentrenamiento**. En la práctica es posible encontrar modelos en donde el riesgo empírico es cero, $L\_{S}(h) = 0$ y la perdida fuera de la muestra es $\mathcal{L}(h, z) \neq 0$ para todo $z\in Z \setminus \\{s\_i\\}\_{i\in[m]}$; un modelo con estas características carece de _la capacidad de generalizar_. Este es un error frecuente, que ocurre con frecuencia cuando solo se utiliza un solo conjunto de datos para entrenar el algoritmo $\mathcal{A}$. Para evitar esto, es usual dividir el conjunto $S$ en dos, un conjunto para realizar el entrenamiento del algoritmo y el otro para medir su _capacidad de generalizar_. El objetivo es que el modelo encontrado tenga un comportamiento similar en ambos conjuntos.
 
 ¿Cómo garantizar _la capacidad de generalizar_? Como hemos visto, aquí hay un problema complejo, que en primer lugar consiste en hacer la elección adecuada de un conjunto de hipótesis $\mathcal{H}$, de manera que para cualquier $\epsilon > 0$ exista una muestra $S$ que garantice que:
 \begin{equation}
 \forall h\in \mathcal{H}, \\; \\;|L\_{S}(h) - L\_{D}(h)| \leq \epsilon.
 \end{equation}
-Una vez se ha identificado la clase de hipótesis adecuada, $\mathcal{H}$, debemos en segundo lugar, encontrar la hipótesis $h$ en $\mathcal{H}$ que satisface la ecuación (3). Si se logra conseguir un modelo con estas características, podremos decir, que nuestros modelo que tiene _la capacidad de generalizar_ y tiene _buen comportamiento_.
+Una vez se ha identificado la clase de hipótesis adecuada, $\mathcal{H}$, debemos en segundo lugar, encontrar la hipótesis $h$ en $\mathcal{H}$ que satisface la ecuación (3). Si se logra conseguir un modelo con estas características, podremos decir, que nuestro modelo tiene _la capacidad de generalizar_ y tiene _buen comportamiento_.
 
 ## Tareas de predicción y clasificación
 
 Veamos algunos ejemplos de problemas de aprendizaje basado en datos:
 
-**Clasificación Multiclase**. Consideremos la tarea de clasificar documentos. Nuestro deseo es diseñar un programa con la capacidad para clasificar una colección de documentos, de acuerdo a diferentes tópicos (e.g., noticias, deportes, biología, medicina). Un algoritmo de aprendizaje para esta tarea debería tener acceso a una colección de documentos correctamente clasificados, $S$, y con base a estos ejemplos, debería entregar una programa (modelo) que puede tomar un nuevo documentos y clasificarlo. Aquí el **conjunto de dominio**, $\mathcal{X}$, es el conjunto de todos los posibles documentos. Es importante señalar, que los documentos debería ser representando por un conjunto de características que podría incluir el número de palabras diferentes en el documentos, el tamaño del documentos, el autor, el origin, etc. El **conjunto de etiquetas**, $\mathcal{Y}$ es el conjunto de todos los posibles tópicos (en este caso, debería ser algún conjunto finito). Una vez hemos identificado nuestros conjuntos de dominio y etiquetas, el otro componente que hace falta es determina una función de perdida adecuada para medir el _perfomance_ de nuestro algoritmo. 
+**Clasificación Multiclase**. Consideremos la tarea de clasificar documentos. Nuestro deseo es diseñar un programa con la capacidad para clasificar una colección de documentos, de acuerdo a diferentes tópicos (e.g., noticias, deportes, biología, medicina). Un algoritmo de aprendizaje para esta tarea debería tener acceso a una colección de documentos correctamente clasificados, $S$, y con base a estos ejemplos, debería entregar una programa (modelo) que puede tomar un nuevo documentos y clasificarlo. Aquí el **conjunto de dominio**, $\mathcal{X}$, es el conjunto de todos los posibles documentos. Es importante señalar, que los documentos debería ser representando por un conjunto de características que podría incluir el número de palabras diferentes en cada documento, el tamaño de cada documento, el autor, el origin, etc. El **conjunto de etiquetas**, $\mathcal{Y}$ es el conjunto de todos los posibles tópicos (en este caso, debería ser algún conjunto finito). Una vez hemos identificado nuestros conjuntos de dominio y etiquetas, el otro componente que hace falta es determinar una función de perdida adecuada para medir el _perfomance_ de nuestro algoritmo. 
 
-En este caso sobre la variable aleatoria $z$ con rango en $\mathcal{X}\times \mathcal{Y}$ se puede considerar la siguiente función de perdida:
+Para el caso de la clasificación multiclase se puede considerar la variable aleatoria $z$  en $\mathcal{X}\times \mathcal{Y}$ con la siguiente función de perdida:
 
 \begin{equation}
 \mathcal{L}(h, (x, y)) = \begin{cases}
@@ -74,17 +74,19 @@ En este caso sobre la variable aleatoria $z$ con rango en $\mathcal{X}\times \ma
 \end{cases}
 \end{equation}
 
-Esta función se usa en problemas de clasificación binaria o multiclase. 
+Esta función se usa en general para problemas de clasificación binaria o multiclase. 
 
-**Regresión**. En esta tarea, el objetivo es encontrar algún patrón simple en los datos --una relación funcional entre los componentes de los datos $\mathcal{X}$ y $\mathcal{Y}$--. Por ejemplo, encontrar la mejor función que predice el peso de nacimiento de un bebe en relación con las medidas obtenidas por ultrasonido del diámetro de su cabeza, el diámetro abdominal y la longitud de su femur. Aquí el dominio es algún subconjunto de $\mathbb{R}^{3}$ (las tres medidas obtenidas por el ultrasonido) y el conjunto de etiquedas de $\mathcal{Y}$ es el conjunto de los números reales (el peso en gramos). En este contexto  es más adecuado llamar a $\mathcal{Y}$ como el conjunto objetivo. En este caso el conjunto de entrenamiento es igual que antes, un subconjunto $S\subseteq \mathcal{X}\times \mathcal{Y}$. Sin embargo, la medida de éxito es diferente. En este ejemplo, se podría evaluar la calidad de la hipótesis $h:\mathcal{X}\to \mathcal{Y}$ por el valor esperado del cuadrado de la diferencia entre las etiquetas correctas y su predicción, es decir:
+**Regresión**. En esta tarea, el objetivo es encontrar algún patrón simple en los datos --una relación funcional entre los componentes de los datos $\mathcal{X}$ e $\mathcal{Y}$--. Por ejemplo, encontrar la mejor función que predice el peso de nacimiento de un bebe en relación con las medidas obtenidas por ultrasonido del diámetro de su cabeza, el diámetro abdominal y la longitud de su femur. Aquí el dominio es algún subconjunto de $\mathbb{R}^{3}$ (las tres medidas obtenidas por el ultrasonido) y el conjunto de etiquedas de $\mathcal{Y}$ es el conjunto de los números reales (el peso en gramos). En este contexto  es más adecuado llamar a $\mathcal{Y}$ como el conjunto objetivo. En este caso el conjunto de entrenamiento es igual que antes, un subconjunto $S\subseteq \mathcal{X}\times \mathcal{Y}$. Sin embargo, la medida de éxito es diferente. En este ejemplo, se podría evaluar la calidad de la hipótesis $h:\mathcal{X}\to \mathcal{Y}$ por el valor esperado del cuadrado de la diferencia entre las etiquetas correctas y su predicción, es decir:
 
 \begin{equation}
 \mathcal{L}(h, (x,y)) = (h(x)-y)^2.
 \end{equation}
 
-En otras entradas veremos otras funciones de perdidas utilizadas en tareas de regresión. 
+En futuras publicaciones veremos otras funciones de perdidas utilizadas en tareas de regresión. 
 
-## ¿Cómo aprende las maquinas?
+**Otras tareas**. A parte de las tareas de clasificación y regresión, que usualmente se clasifican como tareas de **aprendizaje supervisado**, las tareas de **aprendizaje no supervisado** y **aprendizaje semisupervisado** se suele estudiar como tareas de predicción. Más precisamente, el conjunto sin etiquetas $z\_{i}$ se transforma en un conjunto de características $x\_{i} = T\_{1}(z\_{i})\in \mathcal{X}$ y en conjunto de etiquetas $y\_{i}=T\_{2}(z\_i)\in \mathcal{Y}$ usando un par de transformaciones $T\_{1}:\mathcal{Z}\to \mathcal{X}$, $T\_{2}:\mathcal{Z}\to\mathcal{Y}$. Una vez se ha hecho esto, el objetivo es investigar un modelo $f\_{s}$ que se aproxime a la transformación $T\_{2}\circ T\_{1}^{-1}:\mathcal{X}\to \mathcal{Y}$. 
+
+## ¿Cómo aprenden las maquinas?
 
 
 ## Aprendizaje agnóstico correcto probablemente aproximado
