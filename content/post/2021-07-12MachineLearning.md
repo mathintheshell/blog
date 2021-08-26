@@ -83,13 +83,19 @@ Esta función se usa en general para problemas de clasificación binaria o multi
 \end{equation}
 
 En futuras publicaciones veremos otras funciones de perdidas utilizadas en tareas de regresión. 
-
-**Otras tareas**. A parte de las tareas de clasificación y regresión, que usualmente se clasifican como tareas de **aprendizaje supervisado**, las tareas de **aprendizaje no supervisado** y **aprendizaje semisupervisado** se suele estudiar como tareas de predicción. Más precisamente, el conjunto sin etiquetas $z\_{i}$ se transforma en un conjunto de características $x\_{i} = T\_{1}(z\_{i})\in \mathcal{X}$ y en conjunto de etiquetas $y\_{i}=T\_{2}(z\_i)\in \mathcal{Y}$ usando un par de transformaciones $T\_{1}:\mathcal{Z}\to \mathcal{X}$, $T\_{2}:\mathcal{Z}\to\mathcal{Y}$. Una vez se ha hecho esto, el objetivo es investigar un modelo $f\_{s}$ que se aproxime a la transformación $T\_{2}\circ T\_{1}^{-1}:\mathcal{X}\to \mathcal{Y}$. 
-
 ## ¿Cómo aprenden las maquinas?
+Cómo vimos anteriormente, el problema del aprendizaje involucra la elección de un conjunto de hipótesis $\mathcal{H}$ y la busqueda de la hipótesis $h\_{s}$ tal que: 
+\begin{equation}
+h_s \in \operatorname\*{argmin}\_{h\in \mathcal{H}} L\_{S}(h).
+\end{equation}
+En otra palabras, el problema se reduce a un problema de optimización del riesgo empírico $\mathcal{L}_{S}(h)$. Y existen amplia variedad de algoritmos de optimización de funciones, en particular para estas tareas el algoritmo por excelencia es el algoritmo del descenso del gradiente, este consiste en general en realizar la siguiente iteración
+\begin{equation}
+h \leftarrow h - \lambda \nabla L\_{D}(h)
+\end{equation}
+para encontrar una hipótesis $h\_s$. Por otro lado este es un proceso que puede ser automatizable en casi cualquier computadora en el planeta. Así que cualquier maquina con la capacidad para realizar este tipo de iteración, estaría en la capacidad de aprender a clasificar y predecir a partir del aprendizaje de los datos. Sin embargo, ese indicarle a la computadora cómo debe aprender, para esto se debe programar una serie de ordenes en las que se le indica como optimizar las diferentes funciones de perdida, según la tarea de aprendizaje que le deseamos enseñar, una vez el algoritmos se haya ejecutado, la computadora podría estar en la capacidad de clasificar y predecir, obviamente esto no es una tarea sencilla, pero no es imposible. 
 
+Dejaré por el momento esta publicación hasta aquí, para no hacerla más extensa, espero que la hayan disfrutado y aprendido mucho. Nos vemos pronto.
 
-## Aprendizaje agnóstico correcto probablemente aproximado
 
 
 [Siguiente entrada](url)
